@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mirrorland - Play the Captivating Online Adventure Game</title>
+    <meta name="description" content="Dive into Mirrorland, an enchanting puzzle adventure game where you navigate through mirror dimensions to uncover hidden secrets and overcome challenging obstacles.">
+    <link rel="canonical" href="https://mirrorland.shop/">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        apple: {
+                            blue: '#007AFF',
+                            indigo: '#5856D6',
+                            purple: '#AF52DE',
+                            pink: '#FF2D55',
+                            red: '#FF3B30',
+                            orange: '#FF9500',
+                            yellow: '#FFCC00',
+                            green: '#34C759',
+                            teal: '#5AC8FA',
+                            gray: {
+                                100: '#F2F2F7',
+                                200: '#E5E5EA',
+                                300: '#D1D1D6',
+                                400: '#C7C7CC',
+                                500: '#AEAEB2',
+                                600: '#8E8E93',
+                                700: '#636366',
+                                800: '#48484A',
+                                900: '#3A3A3C',
+                                950: '#1C1C1E'
+                            }
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Custom styles -->
+    <style type="text/css">
+        /* For smoother scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Custom loader */
+        .loader {
+            border-top-color: #007AFF;
+            -webkit-animation: spinner 1.5s linear infinite;
+            animation: spinner 1.5s linear infinite;
+        }
+        
+        @-webkit-keyframes spinner {
+            0% { -webkit-transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); }
+        }
+        
+        @keyframes spinner {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Custom shadow for game container */
+        .game-shadow {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        /* Responsive iframe container */
+        .iframe-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio for desktop */
+        }
+        
+        @media (max-width: 768px) {
+            .iframe-container {
+                padding-top: 75%; /* 4:3 Aspect Ratio for mobile */
+            }
+        }
+        
+        .responsive-iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+    <!-- Structured data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "VideoGame",
+        "name": "Mirrorland",
+        "description": "An enchanting puzzle adventure game where you navigate through mirror dimensions to uncover hidden secrets and overcome challenging obstacles.",
+        "genre": ["Puzzle", "Adventure", "Strategy"],
+        "url": "https://mirrorland.shop",
+        "image": "https://mirrorland.shop/game-thumbnail.jpg",
+        "publisher": {
+            "@type": "Organization",
+            "name": "Hitmakers"
+        },
+        "offers": {
+            "@type": "Offer",
+            "availability": "https://schema.org/OnlineOnly",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+</head>
+
+<body class="bg-apple-gray-100 font-sans text-apple-gray-900">
+    <!-- Loading spinner (shows while iframe loads) -->
+    <div id="loader" class="fixed inset-0 z-50 flex items-center justify-center bg-white bg-opacity-80">
+        <div class="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-24 w-24"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-apple-purple to-apple-blue text-white shadow-lg">
+        <div class="container mx-auto px-4 py-6 md:py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">Mirrorland</h1>
+                    <p class="text-lg md:text-xl mt-2 opacity-90">Explore reflective realms in this mind-bending puzzle adventure</p>
+                </div>
+                <div>
+                    <a href="#play" class="inline-flex items-center justify-center px-6 py-3 bg-apple-green hover:bg-opacity-90 text-white font-medium rounded-lg shadow transition duration-300 ease-in-out transform hover:scale-105">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        Play Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8 md:py-12">
+        <!-- Game Section -->
+        <section id="play" class="mb-16">
+            <div class="bg-white rounded-2xl overflow-hidden game-shadow">
+                <div class="p-4 md:p-6 bg-gradient-to-r from-apple-blue to-apple-teal text-white">
+                    <h2 class="text-2xl md:text-3xl font-bold">Play Mirrorland Online</h2>
+                </div>
+                
+                <div class="iframe-container bg-black">
+                    <iframe id="gameIframe" class="responsive-iframe" src="https://www.kongregate.com/games/hitmakers/mirrorland?haref=HP_HNG_mirrorland" allowfullscreen></iframe>
+                </div>
+                
+                <div class="p-4 md:p-6 bg-apple-gray-100">
+                    <div class="flex flex-wrap justify-between items-center">
+                        <div>
+                            <span class="inline-block px-3 py-1 bg-apple-green text-white rounded-full text-sm font-medium">Free to Play</span>
+                            <span class="inline-block px-3 py-1 bg-apple-blue text-white rounded-full text-sm font-medium ml-2">Puzzle Adventure</span>
+                        </div>
+                        <div class="mt-2 md:mt-0">
+                            <button id="fullscreenBtn" class="inline-flex items-center justify-center px-4 py-2 bg-apple-gray-800 hover:bg-apple-gray-900 text-white font-medium rounded-lg text-sm transition duration-300 ease-in-out">
+                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5v-4m0 4h-4m4 0l-5-5"></path>
+                                </svg>
+                                Fullscreen
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Game Description -->
+        <section class="mb-16">
+            <div class="bg-white rounded-2xl overflow-hidden game-shadow p-6 md:p-8">
+                <h2 class="text-2xl md:text-3xl font-bold text-apple-gray-900 mb-6 pb-4 border-b border-apple-gray-200">About Mirrorland</h2>
+                
+                <div class="prose max-w-none">
+                    <p class="text-lg mb-4">Mirrorland is a captivating puzzle adventure game that challenges your perception and problem-solving skills. Navigate through a mysterious world where mirrors aren't just reflections – they're portals to alternate dimensions.</p>
+                    
+                    <h3 class="text-xl font-semibold text-apple-gray-900 mt-6 mb-3">Gameplay Features</h3>
+                    <ul class="list-disc pl-6 space-y-2 text-apple-gray-800">
+                        <li>Explore beautifully designed mirror dimensions with unique visual aesthetics</li>
+                        <li>Solve intricate puzzles that require thinking beyond conventional boundaries</li>
+                        <li>Uncover a mystical storyline as you progress through challenging levels</li>
+                        <li>Experience smooth controls and intuitive gameplay mechanics</li>
+                        <li>Enjoy an immersive soundtrack that enhances the magical atmosphere</li>
+                    </ul>
+                    
+                    <h3 class="text-xl font-semibold text-apple-gray-900 mt-6 mb-3">How to Play</h3>
+                    <p class="mb-4">Use your keyboard arrows or WASD keys to move your character through the mirror world. Interact with objects using your mouse or spacebar. Each mirror you encounter can transport you to a different dimension or reveal hidden paths – use them wisely to progress!</p>
+                    
+                    <h3 class="text-xl font-semibold text-apple-gray-900 mt-6 mb-3">Game Progression</h3>
+                    <p class="mb-4">Start with simple mirror mechanics and gradually face more complex challenges as you advance. The game features over 50 carefully designed levels with increasing difficulty. As you progress, you'll unlock new abilities and discover the secrets hidden within Mirrorland.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Game Tips & Strategies -->
+        <section class="mb-16">
+            <div class="bg-white rounded-2xl overflow-hidden game-shadow">
+                <div class="p-4 md:p-6 bg-gradient-to-r from-apple-orange to-apple-yellow text-white">
+                    <h2 class="text-2xl md:text-3xl font-bold">Tips & Strategies</h2>
+                </div>
+                
+                <div class="p-6 md:p-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-apple-gray-100 p-5 rounded-xl">
+                            <h3 class="text-xl font-semibold text-apple-gray-900 mb-3">Beginner Tips</h3>
+                            <ul class="space-y-2 text-apple-gray-800">
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-apple-green mt-0.5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    Take time to observe the entire level before making your move
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-apple-green mt-0.5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    Look for subtle visual cues that indicate interactive objects
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-apple-green mt-0.5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    Remember that mirrors can reveal what's not visible in your current dimension
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-apple-gray-100 p-5 rounded-xl">
+                            <h3 class="text-xl font-semibold text-apple-gray-900 mb-3">Advanced Strategies</h3>
+                            <ul class="space-y-2 text-apple-gray-800">
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-apple-blue mt-0.5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    Try approaching puzzles from multiple perspectives or dimensions
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-apple-blue mt-0.5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    Some puzzles require precise timing – practice your movements
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-5 h-5 text-apple-blue mt-0.5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                    For complex levels, try mapping out different mirror connections on paper
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="mb-16">
+            <div class="bg-white rounded-2xl overflow-hidden game-shadow">
+                <div class="p-4 md:p-6 bg-gradient-to-r from-apple-pink to-apple-purple text-white">
+                    <h2 class="text-2xl md:text-3xl font-bold">Frequently Asked Questions</h2>
+                </div>
+                
+                <div class="p-6 md:p-8 space-y-6">
+                    <div>
+                        <h3 class="text-xl font-semibold text-apple-gray-900 mb-2">Is Mirrorland free to play?</h3>
+                        <p class="text-apple-gray-700">Yes, Mirrorland is completely free to play online through our website. No downloads or purchases required to enjoy the full gaming experience.</p>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-semibold text-apple-gray-900 mb-2">Can I play Mirrorland on mobile devices?</h3>
+                        <p class="text-apple-gray-700">Yes, our website is fully responsive and optimized for both desktop and mobile play. The game adapts to your screen size for the best experience.</p>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-semibold text-apple-gray-900 mb-2">Does Mirrorland save my progress?</h3>
+                        <p class="text-apple-gray-700">Yes, your progress is automatically saved as you complete levels. Simply return to the game using the same browser and device to continue where you left off.</p>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-xl font-semibold text-apple-gray-900 mb-2">How many levels does Mirrorland have?</h3>
+                        <p class="text-apple-gray-700">Mirrorland features over 50 unique levels with increasing complexity, providing hours of engaging gameplay and challenges.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-apple-gray-950 text-white">
+        <div class="container mx-auto px-4 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <h2 class="text-2xl font-bold mb-2">Mirrorland</h2>
+                    <p class="text-apple-gray-400">© 2025 Mirrorland.shop. All rights reserved.</p>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="#" class="hover:text-apple-blue transition-colors duration-300">Privacy Policy</a>
+                    <a href="#" class="hover:text-apple-blue transition-colors duration-300">Terms of Service</a>
+                    <a href="#" class="hover:text-apple-blue transition-colors duration-300">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Loading screen
+        window.addEventListener('load', function() {
+            const loader = document.getElementById('loader');
+            const gameIframe = document.getElementById('gameIframe');
+            
+            // Hide loader after iframe has loaded or after 5 seconds (failsafe)
+            setTimeout(function() {
+                loader.style.display = 'none';
+            }, 5000);
+            
+            gameIframe.onload = function() {
+                loader.style.display = 'none';
+            };
+        });
+        
+        // Fullscreen button functionality
+        document.getElementById('fullscreenBtn').addEventListener('click', function() {
+            const gameIframe = document.getElementById('gameIframe');
+            
+            if (gameIframe.requestFullscreen) {
+                gameIframe.requestFullscreen();
+            } else if (gameIframe.mozRequestFullScreen) { /* Firefox */
+                gameIframe.mozRequestFullScreen();
+            } else if (gameIframe.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+                gameIframe.webkitRequestFullscreen();
+            } else if (gameIframe.msRequestFullscreen) { /* IE/Edge */
+                gameIframe.msRequestFullscreen();
+            }
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
